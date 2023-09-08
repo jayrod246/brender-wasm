@@ -1,0 +1,10 @@
+.{
+    .name = "brender-teapot",
+    .version = "0.0.0",
+    .dependencies = .{
+        .brender = .{
+            .url = "https://github.com/Jayrod246/brender/archive/9982370aaa94e86e8f8c2be550b5bf195fe067e5.tar.gz",
+            .hash = "12202c4023f882b6157cd697d424cf39b28d03eedddbba4e9720cd40ca8da5b95be7",
+        },
+    },
+}
