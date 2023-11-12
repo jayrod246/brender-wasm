@@ -74,7 +74,7 @@ const Fixed = struct {
     }
 
     inline fn angle(n: f32) Angle {
-        var mag = @as(u16, @intCast(@as(u32, @intFromFloat(@fabs(n))) % math.maxInt(u16)));
+        var mag = @as(u16, @intCast(@as(u32, @intFromFloat(@abs(n))) % math.maxInt(u16)));
         var angle_value: u16 = 0;
         if (n < 0) {
             angle_value -%= mag;

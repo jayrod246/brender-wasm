@@ -34,7 +34,7 @@ const decodeString = (pointer: number, length: number) => {
   return new TextDecoder().decode(slice);
 };
 
-WebAssembly.instantiateStreaming(fetch("./zig-out/lib/teapot.wasm"), importObject).then(
+WebAssembly.instantiateStreaming(fetch("./zig-out/bin/teapot.wasm"), importObject).then(
   (result) => {
     const wasmMemoryArray = new Uint8Array(memory.buffer);
 

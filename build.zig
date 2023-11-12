@@ -20,7 +20,7 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
-    const lib = b.addSharedLibrary(.{
+    const lib = b.addExecutable(.{
         .name = "teapot",
 
         // In this case the main source file is merely a path, however, in more

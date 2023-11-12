@@ -15,7 +15,7 @@ export fn getImagePointer() [*]u8 {
     return @ptrCast(&image_buffer);
 }
 
-pub export fn main() void {
+pub fn main() void {
     brfs.setFs();
     log.setFn(consoleLogWrapper);
     teapot = Teapot.init() catch unreachable;
