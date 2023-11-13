@@ -6,3 +6,10 @@ This repo is based on a fork of [minimal-zig-wasm-canvas](https://github.com/dan
 The teapot example is based heavily on this [SDL sample](https://github.com/bjrkk/brenSDL).
 
 Bit of warning: this code has not been cleaned up! it's old code, from way earlier this year, that I repurposed to test out the [brender Zig library](https://github.com/jayrod246/brender).
+
+# Build Instructions
+Assumes [zig](https://ziglang.org) and [deno](https://deno.land) are on your PATH.
+```console
+deno bundle script.js script.ts
+zig build
+```
