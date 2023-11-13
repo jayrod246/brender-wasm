@@ -10,6 +10,6 @@ Bit of warning: this code has not been cleaned up! it's old code, from way earli
 # Build Instructions
 Assumes [zig](https://ziglang.org) and [deno](https://deno.land) are on your PATH.
 ```console
-deno bundle script.js script.ts
+deno bundle script.ts script.js
 zig build
 ```

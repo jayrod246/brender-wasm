@@ -24,7 +24,7 @@ jobs:
       - name: Build
         run: |
           zig build -p _site/zig-out
-          deno bundle script.js _site/script.ts
+          deno bundle script.ts _site/script.js
           cp index.html _site/index.html
       - name: Fix permissions
         run: |
