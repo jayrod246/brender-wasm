@@ -8,11 +8,11 @@ const number_of_pages = 128;
 // declaratively construct a build graph that will be executed by an external
 // runner.
 pub fn build(b: *std.Build) void {
-    const target: std.zig.CrossTarget = .{
+    const target = b.resolveTargetQuery(.{
         .cpu_arch = .wasm32,
         .os_tag = .wasi,
         .abi = .musl,
-    };
+    });
 
     const optimize: std.builtin.OptimizeMode = .ReleaseSmall;
 
