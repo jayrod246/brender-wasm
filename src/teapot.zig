@@ -60,9 +60,9 @@ pub fn init() !Self {
     log.log("ZBBegin");
     brender.BrZbBegin(br_color_fmt, br_depth_fmt);
     log.log("ColorBuffer");
-    var color_buffer = brender.BrPixelmapAllocate(br_color_fmt, @as(i32, @intCast(def_width)), @as(i32, @intCast(def_height)), null, brender.BR_PMAF_NORMAL);
+    const color_buffer = brender.BrPixelmapAllocate(br_color_fmt, @as(i32, @intCast(def_width)), @as(i32, @intCast(def_height)), null, brender.BR_PMAF_NORMAL);
     log.log("DepthBuffer");
-    var depth_buffer = brender.BrPixelmapMatch(color_buffer, br_depth_match_fmt);
+    const depth_buffer = brender.BrPixelmapMatch(color_buffer, br_depth_match_fmt);
 
     log.log("Teapot Model load");
     var teapot_model = br.Model.load("./assets/teapot.dat") orelse {
@@ -72,7 +72,7 @@ pub fn init() !Self {
     log.log("Teapot Model add");
     teapot_model.add();
 
-    var world_root: *brender.br_actor = brender.BrActorAllocate(brender.BR_ACTOR_NONE, null);
+    const world_root: *brender.br_actor = brender.BrActorAllocate(brender.BR_ACTOR_NONE, null);
     var world_camera: *brender.br_actor = brender.BrActorAdd(world_root, brender.BrActorAllocate(brender.BR_ACTOR_CAMERA, null));
     var camera_data = getData(brender.br_camera, world_camera);
     camera_data.type = brender.BR_CAMERA_PERSPECTIVE;

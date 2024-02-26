@@ -36,7 +36,7 @@ fn read(buf: ?*anyopaque, size: usize, nelems: u32, f: ?*anyopaque) callconv(.C)
     // logger.log("BrFilesystem Read");
 
     var reader = @as(*Stream, @ptrCast(@alignCast(f.?))).reader();
-    var n = reader.read(@as([*]u8, @ptrCast(buf))[0..(size * nelems)]) catch 0;
+    const n = reader.read(@as([*]u8, @ptrCast(buf))[0..(size * nelems)]) catch 0;
     return @as(u32, @intCast(n));
 }
 
@@ -64,8 +64,8 @@ fn close(f: ?*anyopaque) callconv(.C) void {
 }
 
 fn eof(f: ?*anyopaque) callconv(.C) i32 {
-    var stream = @as(*Stream, @ptrCast(@alignCast(f.?)));
-    var result = _eof(stream) catch false;
+    const stream = @as(*Stream, @ptrCast(@alignCast(f.?)));
+    const result = _eof(stream) catch false;
     return if (result) 0 else 1;
 }
 

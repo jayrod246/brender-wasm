@@ -24,8 +24,8 @@ pub fn main() void {
 export fn updateImage(delta_time: f32) void {
     log.log("hello");
     teapot.update(delta_time) catch unreachable;
-    var src: [*]Rgb = @ptrCast(teapot.color_buffer.pixels.?);
-    var dest = std.mem.bytesAsSlice(Rgba, image_buffer[0..]);
+    const src: [*]Rgb = @ptrCast(teapot.color_buffer.pixels.?);
+    const dest = std.mem.bytesAsSlice(Rgba, image_buffer[0..]);
 
     for (dest, src) |*d, s| {
         d.* = .{

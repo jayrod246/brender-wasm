@@ -20,8 +20,8 @@ pub const Model = struct {
         var tmp: [255]u8 = undefined;
         tmp[path.len] = 0;
         var pathZ: [:0]u8 = tmp[0..path.len :0];
-        std.mem.copy(u8, pathZ, path);
-        var model = c.BrModelLoad(&pathZ[0]) orelse return null;
+        @memcpy(pathZ, path);
+        const model = c.BrModelLoad(&pathZ[0]) orelse return null;
         return .{ .model = model };
     }
 
@@ -74,7 +74,7 @@ const Fixed = struct {
     }
 
     inline fn angle(n: f32) Angle {
-        var mag = @as(u16, @intCast(@as(u32, @intFromFloat(@abs(n))) % math.maxInt(u16)));
+        const mag = @as(u16, @intCast(@as(u32, @intFromFloat(@abs(n))) % math.maxInt(u16)));
         var angle_value: u16 = 0;
         if (n < 0) {
             angle_value -%= mag;
